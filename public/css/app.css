@@ -1,0 +1,82 @@
+body{
+    background-color: #393c40;
+}
+
+.slider-img{
+    height: 100% !important;
+}
+.slider{
+    height: 320px;
+}
+.carousel-inner{
+    background-color: #393c40;
+}
+.carousel-item{
+    height:300px
+}
+.carousel-caption{
+    background-color: rgba(0, 0, 0, 0.445);
+    margin: auto;
+    width: 50vw;
+}
+.container{
+    justify-content: space-around
+}
+.border{
+    height: 150px;
+    width: 250px;
+    text-align: center;
+    background-color: #212529;
+    color: snow;
+    /* border: 1px solid #385571 !important; */
+    border-color: #1454ed !important;
+    border-width: 0 1px !important
+
+}
+.border a{
+    margin-top: 2rem;
+}
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+body {
+    /* background: linear-gradient(0deg, #fff, 50%, #DEEEFE); */
+    font-family: 'Rubik', sans-serif;
+   
+}
+
+.containerforfootet {
+    overflow: hidden;
+  
+    background: #262626;
+    color: #627482 !important;
+    margin-bottom: 0;
+    padding-bottom: 0
+}
+
+small {
+    font-size: calc(12px + (15 - 12) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+.bold-text {
+    color: #989c9e !important
+}
+
+.mt-55 {
+    margin-top: calc(50px + (60 - 50) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+h3 {
+    font-size: calc(34px + (40 - 34) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+.social {
+    font-size: 21px !important
+}
+
+.rights {
+    font-size: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important
+}
+.list{
+    width: 80%;
+    margin: auto;
+}
