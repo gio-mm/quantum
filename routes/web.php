@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\adminIndex;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +19,28 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-Route::view('/registration','registration');
+Route::view('/register','registration');
 Route::view('/login','login');
-Route::view('/login','login');
-Route::view('/basicCourse','basicCourse');
+
+Route::get('/logout', function () {
+    Session::forget("user");
+    return redirect('/');
+});
+
+Route::middleware([customAuth::class])->group(function () {
+    Route::get('/info',[UserController::class,'userinfo']);//->middleware('customAuth');
+    Route::view('/basicCourse','pages/basicCourse');
+});
+
+Route::get('/si',[UserController::class,'userinfo']);
+
+Route::post('/register',[UserController::class,'register']);
+Route::post('/verificationCode', [UserController::class,'verifymail']);
+
+Route::post('/login',[UserController::class,'login']);
+
+
+//admin
+Route::get('/admin',[adminIndex::class,'index']);
+
+

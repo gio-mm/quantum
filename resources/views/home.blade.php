@@ -1,7 +1,7 @@
 
 @extends('details/master')
 @section('content')
-<div class="slider">
+{{-- <div class="slider">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-interval="false">
         <ol class="carousel-indicators">
             <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
@@ -40,6 +40,43 @@
             <span class="visually-hidden">Next</span>
         </a>
     </div>
+</div> --}}
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://raw.githubusercontent.com/isocpp/logos/master/cpp_logo.png" class="d-block h-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Lorem ipsum dolor sit amet consectetur.</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam delectus voluptatum itaque tempora, omnis sint.</p>
+              </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://tetraxbalance.com/wp-content/uploads/2016/03/js-logo.png" class="d-block h-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Lorem ipsum dolor sit amet consectetur.</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam delectus voluptatum itaque tempora, omnis sint.</p>
+              </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://cdn.freebiesupply.com/logos/large/2x/php-1-logo-png-transparent.png" class="d-block h-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Lorem ipsum dolor sit amet consectetur.</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam delectus voluptatum itaque tempora, omnis sint.</p>
+              </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <img src="..." alt="...">
+        
+      </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
 {{-- <div class="container d-flex "> --}}
     <div class="card-group">
@@ -68,6 +105,7 @@
             
         </div>
     </div>
-{{-- </div> --}}
+    {{-- </div> --}}
 
-        @endsection    
+    
+    @endsection    
