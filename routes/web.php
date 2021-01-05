@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\adminIndex;
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +41,18 @@ Route::post('/login',[UserController::class,'login']);
 
 
 //admin
-Route::get('/admin',[adminIndex::class,'index']);
+Route::prefix('admin')->group(function () {
+    
+    Route::get('/',[adminController::class,'index']);
+    Route::view('/add','admin/add');
+    Route::post('/add',[adminController::class,'addCourse']);   
+
+    Route::get('/addGroup',[adminController::class,'addGroupPage']);
+    Route::post('/addGroup',[adminController::class,'addGroup']);
+
+    Route::get('/allGroups',[adminController::class,'allgroups']);
+
+});
+
 
 

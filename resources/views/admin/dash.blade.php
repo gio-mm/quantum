@@ -1,5 +1,10 @@
 @extends('admin/master')
 @section('content')
+@if (Session::has('messageAction'))
+<div class="alert alert-success" role="alert">
+    {{Session::get('messageAction')}}
+</div>
+@endif
 
 <div class="row dash-row">
     <div class="col-xl-4">

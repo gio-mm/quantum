@@ -85,7 +85,7 @@
             <div class="card-body">
                 <h5 class="card-title">საბაზისო კურსი</h5>
                 <p class="card-text"></p>
-                <a href="basicCourse" class="btn btn-light">ნახვა</a>
+                <a href="/basicCourse" class="btn btn-light">ნახვა</a>
             </div>
         </div>
         <div class="card border" >

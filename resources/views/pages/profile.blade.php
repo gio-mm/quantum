@@ -12,10 +12,6 @@
               <h1>{{$userInfo->name}} {{$userInfo->lastname}}</h1>
               <p>{{$userInfo->email}}</p>
           </div>
-
-          <ul class="nav nav-pills nav-stacked">
-              <li><a href="#"> <i class="fa fa-edit"></i> Edit profile</a></li>
-          </ul>
       </div>
   </div>
   <div class="profile-info col-md-9">
@@ -77,5 +73,66 @@
       </div>
   </div>
 </div>
+</div>
+<div class="d-flex flex-wrap mt-4">
+    @if ($groupInfo)
+    @foreach ($groupInfo as $info)
+    
+    <div class="col-lg-6">
+ 
+          <div class="d-flex justify-content-between w-100 text-white">
+                
+              @foreach (json_decode($info['group']->days) as $key=>$item)
+                <div class="{{$item?'bg-warning':'bg-secondary'}} flex-even w-100 text-center">
+              
+                    {{$key.' '.$item}}
+                </div> 
+              @endforeach
+           
+           
+           
+          </div>
+        <div class=" easion-card border-0 ">
+            <div class="card-header  ">
+              
+                <div>
+                      <div class="easion-card-title">Group : {{$info['group']->name}} </div>
+                    <div class="easion-card-title">Course:{{$info['group']->course}} </div>
+                </div>
+            </div>
+            <div class="card-body  bg-dark">
+                <table class="table table-dark  bg-dark table-hover table-in-card">
+                    <thead >
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($info['users'] as $key=>$user)
+                        <tr>
+                            <th scope="row">{{$key+1}} </th>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->lastname}}</td>
+ 
+                        </tr>
+                        @endforeach
+                        
+             
+                    </tbody>
+                    
+                </table>
+
+            </div>
+        </div>
+    </div>
+    
+    
+    @endforeach
+    @else
+     <div class="h1 mx-auto my-3"> You have no any current course </div>
+    @endif
+
 </div>
 @endsection

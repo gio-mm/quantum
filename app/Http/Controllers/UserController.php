@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Group;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Mail\SignupEmail;
 use Illuminate\Support\Facades\Mail;
+use PhpParser\Node\Stmt\TryCatch;
+Use Exception;
+use Mockery\Undefined;
 
 class UserController extends Controller
 {
+ 
     //
     function login(Request $req){
        
@@ -85,6 +90,24 @@ class UserController extends Controller
     function userinfo(Request $req){
         
         $userInfo=User::where(['email'=>$req->session()->get('user')->email])->first();
-        return view('pages/profile',['userInfo'=>$userInfo]);
+
+        $userGroup=User::find($userInfo->id)->group()->orderBy('name')->get();
+        
+        // dd(count($userGroup));
+        if(count($userGroup)){
+       
+        foreach ($userGroup as  $key=>$value) {
+            # code...
+            $groupInfo[$key]=['group'=>$value,
+            'users'=>( Group::find($value->id)->user()->orderBy('name')->get())];
+        
+        }
+    }else{
+        
+        $groupInfo='';
+        
+        
+    }
+        return view('pages/profile',['userInfo'=>$userInfo,'groupInfo'=> $groupInfo]);
     }
 }
