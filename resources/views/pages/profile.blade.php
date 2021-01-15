@@ -9,6 +9,7 @@
               <a href="#">
                   <img src="https://icon-library.com/images/default-profile-icon/default-profile-icon-1.jpg" alt="">
               </a>
+              {{-- @dd($groupInfo) --}}
               <h1>{{$userInfo->name}} {{$userInfo->lastname}}</h1>
               <p>{{$userInfo->email}}</p>
           </div>
@@ -96,8 +97,8 @@
             <div class="card-header  ">
               
                 <div>
-                      <div class="easion-card-title">Group : {{$info['group']->name}} </div>
-                    <div class="easion-card-title">Course:{{$info['group']->course}} </div>
+                      <div class="easion-card-title">Group : {{$info['group']->group_name}} </div>
+                    <div class="easion-card-title">Course:{{$info['group']->name}} </div>
                 </div>
             </div>
             <div class="card-body  bg-dark">

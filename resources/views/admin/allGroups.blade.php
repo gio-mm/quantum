@@ -24,7 +24,7 @@
                     <i class="fas fa-table"></i>
                 </div>
                 <div>
-                      <div class="easion-card-title">Group : {{$info['group']->name}} </div>
+                      <div class="easion-card-title">Group : {{$info['group']->group_name}} </div>
                     <div class="easion-card-title">Course:{{$info['group']->course}} </div>
                 </div>
             </div>

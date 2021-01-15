@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Group;
+use App\Models\Message;
+use App\Models\Course;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Mail\SignupEmail;
@@ -11,6 +14,7 @@ use Illuminate\Support\Facades\Mail;
 use PhpParser\Node\Stmt\TryCatch;
 Use Exception;
 use Mockery\Undefined;
+
 
 class UserController extends Controller
 {
@@ -91,15 +95,17 @@ class UserController extends Controller
         
         $userInfo=User::where(['email'=>$req->session()->get('user')->email])->first();
 
-        $userGroup=User::find($userInfo->id)->group()->orderBy('name')->get();
-        
-        // dd(count($userGroup));
+        $userGroup=User::find($userInfo->id)->group()
+        ->join('courses', 'courses.id', '=', 'groups.course_id')
+        ->select('groups.id as groups_id','groups.name  as group_name','days','courses.name as name' )
+        ->orderBy('name')->get();
+
         if(count($userGroup)){
        
         foreach ($userGroup as  $key=>$value) {
             # code...
             $groupInfo[$key]=['group'=>$value,
-            'users'=>( Group::find($value->id)->user()->orderBy('name')->get())];
+            'users'=>( Group::find($value->groups_id)->user()->orderBy('name')->get())];
         
         }
     }else{
@@ -109,5 +115,44 @@ class UserController extends Controller
         
     }
         return view('pages/profile',['userInfo'=>$userInfo,'groupInfo'=> $groupInfo]);
+    }
+    function basicCourse($category,Request $req){
+       if($category==='basicCourse'){
+            $type='1';
+       }elseif($category==='courses'){
+             $type='2';
+       }else{
+             $type='3';
+       }
+       
+        $userId=$req->session()->get('user')->id;
+
+        $groups=DB::table('groups')
+        ->join('courses', 'courses.id', '=', 'groups.course_id')
+        ->where('courses.type',$type)
+        ->select('groups.name','days')
+        ->get();
+        
+        
+        $userHasCourse= User::find($userId)->group() 
+            ->join('courses', 'courses.id', '=', 'groups.course_id')
+            ->where('courses.type',$type)
+            ->select('groups.id as groups_id','groups.name  as group_name','days','courses.name as name' )
+            ->get();
+       
+        $userCourseReq=Message::where('user_id',$userId)->where('type','prog')->first();
+
+   
+       
+        if(count($userHasCourse)){
+            $hasCourse='hasCourse';
+        }elseif($userCourseReq){
+            $hasCourse='requested';
+        }else{
+            $hasCourse='';
+        }
+    
+        return view('basicCourse',['groups'=>$groups,'hasCourse'=>$hasCourse,'userCourseReq'=>$userCourseReq]);
+        
     }
 }
