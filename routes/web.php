@@ -3,6 +3,10 @@
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\UserMessages;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\PageController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/',[PageController::class,'home']);
 Route::view('/register','registration');
 Route::view('/login','login');
 
@@ -29,10 +31,12 @@ Route::get('/logout', function () {
 
 Route::middleware([customAuth::class])->group(function () {
     Route::get('/info',[UserController::class,'userinfo']);//->middleware('customAuth');
-    Route::view('/basicCourse','pages/basicCourse');
+    Route::get('/c/{category}',[UserController::class,'basicCourse']);
+    Route::get('/c/course',[UserController::class,'course']);
+    Route::get('/basicCourse/join/{t}/{g}',[UserMessages::class,'basicCourse']);//need mddleware
 });
 
-Route::get('/si',[UserController::class,'userinfo']);
+
 
 Route::post('/register',[UserController::class,'register']);
 Route::post('/verificationCode', [UserController::class,'verifymail']);
@@ -44,13 +48,33 @@ Route::post('/login',[UserController::class,'login']);
 Route::prefix('admin')->group(function () {
     
     Route::get('/',[adminController::class,'index']);
-    Route::view('/add','admin/add');
-    Route::post('/add',[adminController::class,'addCourse']);   
+
+  
+    Route::resources([
+        '/posts' => PostController::class,
+    ]); 
+
+    // Route::get('/addNews',[adminController::class,'index']);
+    Route::get('/',[adminController::class,'index']);
+
+    Route::view('/addCourse','admin/add');
+    Route::post('/addCourse',[adminController::class,'addCourse']);   
+
+    Route::get('/addMember',[adminController::class,'addMemberPage']);
+    Route::post('/addMember',[adminController::class,'addMember']);
+
+    Route::get('/addMember/{id}',[UserMessages::class,'addUserToGroup'])->where('id', '[0-9]+');
+    Route::post('/userRequest/reply',[UserMessages::class,'reply']);
 
     Route::get('/addGroup',[adminController::class,'addGroupPage']);
     Route::post('/addGroup',[adminController::class,'addGroup']);
 
     Route::get('/allGroups',[adminController::class,'allgroups']);
+
+
+    Route::get('/search',[adminController::class,'search']);
+
+    
 
 });
 

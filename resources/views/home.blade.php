@@ -43,27 +43,18 @@
 </div> --}}
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="https://raw.githubusercontent.com/isocpp/logos/master/cpp_logo.png" class="d-block h-100" alt="...">
+        @foreach ($posts as $item)
+       
+        <div class="carousel-item {{$loop->first ?'active':''}}">
+            <img src="{{Storage::url($item->img)}}" class="d-block h-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Lorem ipsum dolor sit amet consectetur.</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam delectus voluptatum itaque tempora, omnis sint.</p>
+                <h5>{{$item->title}}</h5>
+                <p>{{$item->description}}</p>
               </div>
         </div>
-        <div class="carousel-item">
-            <img src="https://tetraxbalance.com/wp-content/uploads/2016/03/js-logo.png" class="d-block h-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Lorem ipsum dolor sit amet consectetur.</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam delectus voluptatum itaque tempora, omnis sint.</p>
-              </div>
-        </div>
-        <div class="carousel-item">
-            <img src="https://cdn.freebiesupply.com/logos/large/2x/php-1-logo-png-transparent.png" class="d-block h-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Lorem ipsum dolor sit amet consectetur.</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam delectus voluptatum itaque tempora, omnis sint.</p>
-              </div>
-        </div>
+        @endforeach
+     
+
     </div>
     <div class="carousel-item">
         <img src="..." alt="...">
@@ -85,14 +76,14 @@
             <div class="card-body">
                 <h5 class="card-title">საბაზისო კურსი</h5>
                 <p class="card-text"></p>
-                <a href="/basicCourse" class="btn btn-light">ნახვა</a>
+                <a href="c/basicCourse" class="btn btn-light">ნახვა</a>
             </div>
         </div>
         <div class="card border" >
             <div class="card-body">
                 <h5 class="card-title">სპეც. კურსები</h5>
                 <p class="card-text"></p>
-                <a href="#" class="btn btn-light">ნახვა</a>
+                <a href="c/courses" class="btn btn-light">ნახვა</a>
             </div>
         </div>
         
@@ -100,7 +91,7 @@
             <div class="card-body">
                 <h5 class="card-title">ტრეინინგები</h5>
                 <p class="card-text"></p>
-                <a href="#" class="btn btn-light">ნახვა</a>
+                <a href="c/trainings" class="btn btn-light">ნახვა</a>
             </div>  
             
         </div>

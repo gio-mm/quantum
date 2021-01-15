@@ -16,9 +16,9 @@
         <div class="input-group-append">
             <label class="input-group-text" for="inputGroupSelect02">course</label>
         </div>
-        <select name='courseName'class="custom-select" id="inputGroupSelect02">
+        <select name='course_id'class="custom-select" id="inputGroupSelect02">
             @foreach ($courses as $item)
-                <option {{$item->id==1?'selecded':''}} value="{{$item->name}}">{{$item->name}} </option>
+                <option {{$loop->first ?'selected':''}} value="{{$item->id}}">{{$item->name}} </option>
             @endforeach
            
             

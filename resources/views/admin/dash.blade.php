@@ -1,5 +1,6 @@
 @extends('admin/master')
 @section('content')
+
 @if (Session::has('messageAction'))
 <div class="alert alert-success" role="alert">
     {{Session::get('messageAction')}}
@@ -117,27 +118,17 @@
             </div>
             <div class="card-body ">
                 <div class="notifications">
-                    <a href="#!" class="notification">
+                    @foreach ($messages as $item)
+                    <a href='{{url("admin/addMember/$item->user_id")}}' class="notification">
                         <div class="notification-icon">
                             <i class="fas fa-inbox"></i>
                         </div>
-                        <div class="notification-text">New comment</div>
-                        <span class="notification-time">21 days ago</span>
+                        <div class="notification-text">{{$item->message}}</div>
+                        <span class="notification-time">{{$item->created_at}}</span>
                     </a>
-                    <a href="#!" class="notification">
-                        <div class="notification-icon">
-                            <i class="fas fa-inbox"></i>
-                        </div>
-                        <div class="notification-text">New comment</div>
-                        <span class="notification-time">21 days ago</span>
-                    </a>
-                    <a href="#!" class="notification">
-                        <div class="notification-icon">
-                            <i class="fas fa-inbox"></i>
-                        </div>
-                        <div class="notification-text">New comment</div>
-                        <span class="notification-time">21 days ago</span>
-                    </a>
+                    @endforeach
+                    
+                   
                     <div class="notifications-show-all">
                         <a href="#!">Show all</a>
                     </div>

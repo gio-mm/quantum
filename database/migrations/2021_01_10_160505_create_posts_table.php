@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddDaysToGroups extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class AddDaysToGroups extends Migration
      */
     public function up()
     {
-        Schema::table('groups', function (Blueprint $table) {
-            //
-            $table->json('days')->after('course');
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('img');
+            $table->string('description');
+            $table->text('content');
+
+            $table->timestamps();
         });
     }
 
@@ -26,9 +31,6 @@ class AddDaysToGroups extends Migration
      */
     public function down()
     {
-        Schema::table('groups', function (Blueprint $table) {
-            //
-            $table->dropColumn('days');
-        });
+        Schema::dropIfExists('posts');
     }
 }

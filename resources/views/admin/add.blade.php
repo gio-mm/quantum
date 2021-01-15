@@ -2,7 +2,7 @@
 
 @section('content')
 <h1 class="text-center my-1"> create a  course</h1>
-<form action="/admin/add" method="post">
+<form action="/admin/addCourse" method="post">
     @csrf
 <div class="container d-flex flex-wrap">
     
