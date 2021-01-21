@@ -3,7 +3,7 @@
 @section('content')
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <h1>blaa b</h1>
+    <h1>hi</h1>
     <div class="carousel-inner">
             @foreach ($posts as $item)
         
