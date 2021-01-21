@@ -4,7 +4,7 @@
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-        {{-- @foreach ($posts as $item)
+        @foreach ($posts as $item)
        
         <div class="carousel-item {{$loop->first ?'active':''}}">
             <img src="{{Storage::url($item->img)}}" class="d-block h-100" alt="...">
@@ -13,14 +13,14 @@
                 <p>{{$item->description}}</p>
               </div>
         </div>
-        @endforeach --}}
-        <div class="carousel-item active">
+        @endforeach
+        {{-- <div class="carousel-item active">
             <img src="https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png" class="d-block h-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5></h5>
                 <p></p>
               </div>
-        </div>
+        </div> --}}
      
 
     </div>
