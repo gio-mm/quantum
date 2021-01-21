@@ -17,7 +17,7 @@
         <div class="carousel-item active">
             <img src="https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png" class="d-block h-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>}</h5>
+                <h5></h5>
                 <p></p>
               </div>
         </div>
