@@ -24,7 +24,7 @@
         <select name='groupName'class="custom-select" id="inputGroupSelect02">
              
             @if ($group)
-            <option selected value="{{$group->name}}">{{$group->name.' ('. $group->course.')  '}} </option>
+            <option selected value="{{$group->name}}">{{$group->name.' ('. $group->course_name.')  '}} </option>
 
             @endif
            

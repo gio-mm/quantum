@@ -6,7 +6,7 @@
     {{Session::get('messageAction')}}
 </div>
 @endif
-<form action="/admin/addGroup" method="post">
+<form action="/admin/groups" method="post">
     @csrf
 <div class="container ">
     

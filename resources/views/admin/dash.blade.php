@@ -27,30 +27,31 @@
     </div>
     <div class="col-xl-4">
         <div class="stats stats-success ">
-            <h3 class="stats-title"> Revenue </h3>
+            <h3 class="stats-title"> Groups </h3>
             <div class="stats-content">
                 <div class="stats-icon">
-                    <i class="fas fa-cart-arrow-down"></i>
+                    <i class="fas fa-users"></i>
                 </div>
                 <div class="stats-data">
-                    <div class="stats-number">$25,541</div>
+                    <div class="stats-number">{{$countGroups}} </div>
                     <div class="stats-change">
-                        <span class="stats-percentage">+17.5%</span>
-                        <span class="stats-timeframe">from last month</span>
+                        <span class="stats-percentage"></span>
+                        <span class="stats-timeframe"></span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-xl-4">
-        <div class="stats stats-danger">
-            <h3 class="stats-title"> Open tickets </h3>
+        <div class="stats stats-warning">
+            <h3 class="stats-title"> Posts </h3>
             <div class="stats-content">
                 <div class="stats-icon">
-                    <i class="fas fa-phone"></i>
+                    <i class="fas fa-layer-group
+                    "></i>
                 </div>
                 <div class="stats-data">
-                    <div class="stats-number">5</div>
+                    <div class="stats-number">{{$countPosts}} </div>
                 </div>
             </div>
         </div>
@@ -118,11 +119,13 @@
             </div>
             <div class="card-body ">
                 <div class="notifications">
+                   
                     @foreach ($messages as $item)
                     <a href='{{url("admin/addMember/$item->user_id")}}' class="notification">
                         <div class="notification-icon">
                             <i class="fas fa-inbox"></i>
                         </div>
+                        
                         <div class="notification-text">{{$item->message}}</div>
                         <span class="notification-time">{{$item->created_at}}</span>
                     </a>

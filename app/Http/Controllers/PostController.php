@@ -22,10 +22,10 @@ class PostController extends Controller
     {
         //
         $posts=Post::all();
-        ;
+        
        
         return  view('admin.posts',['posts'=> $posts]);
-    }
+    }   
 
     /**
      * Show the form for creating a new resource.
@@ -143,5 +143,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        Post::destroy($id);
+        return redirect('/admin')->with("messageAction","post successfully removed  ");
     }
 }

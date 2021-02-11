@@ -6,6 +6,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\UserMessages;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\GroupController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +53,7 @@ Route::prefix('admin')->group(function () {
   
     Route::resources([
         '/posts' => PostController::class,
+        '/groups'=> GroupController::class,
     ]); 
 
     // Route::get('/addNews',[adminController::class,'index']);
@@ -66,10 +68,11 @@ Route::prefix('admin')->group(function () {
     Route::get('/addMember/{id}',[UserMessages::class,'addUserToGroup'])->where('id', '[0-9]+');
     Route::post('/userRequest/reply',[UserMessages::class,'reply']);
 
-    Route::get('/addGroup',[adminController::class,'addGroupPage']);
-    Route::post('/addGroup',[adminController::class,'addGroup']);
+    // Route::get('/addGroup',[adminController::class,'addGroupPage']);
 
-    Route::get('/allGroups',[adminController::class,'allgroups']);
+    // Route::post('/addGroup',[adminController::class,'addGroup']);
+
+    // Route::get('/allGroups',[adminController::class,'allgroups']);
 
 
     Route::get('/search',[adminController::class,'search']);

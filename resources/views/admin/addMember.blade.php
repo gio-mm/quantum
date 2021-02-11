@@ -18,10 +18,11 @@
         <div class="input-group-append">
             <label class="input-group-text" for="inputGroupSelect02">Group</label>
         </div>
+
         <select name='groupName'class="custom-select" id="inputGroupSelect02">
            
             @foreach ($groups as $item)
-            <option {{$item->id==1?'selecded':''}} value="{{$item->name}}">{{$item->name.' ('.$item->course.')  '}} </option>
+            <option {{$item->id==1?'selecded':''}} value="{{$item->group_name}}">{{$item->group_name.' ('.$item->course.')  '}} </option>
              @endforeach
             
         </select>

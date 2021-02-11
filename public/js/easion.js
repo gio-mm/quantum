@@ -8,7 +8,7 @@
 const mobileBreakpoint = window.matchMedia("(max-width: 991px )");
 
 $(document).ready(function(){
-    console.log('movel')
+   
     $(".dash-nav-dropdown-toggle").click(function(){
         $(this).closest(".dash-nav-dropdown")
             .toggleClass("show")

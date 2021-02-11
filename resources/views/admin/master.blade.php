@@ -48,16 +48,16 @@
                                                     <i class="fas fa-user-plus  mr-2"></i>Add Member</a>
                                                 </div>
                                                 <div class="dash-nav-dropdown-menu">
-                                                    <a href="/admin/addGroup" class="dash-nav-dropdown-item">
+                                                    <a href="/admin/groups/create" class="dash-nav-dropdown-item">
                                                         <i class="fas fa-plus-circle mr-2"></i>Add group</a>
                                                     </div>
                                                     <div class="dash-nav-dropdown-menu">
-                                                        <a href="/admin/allGroups" class="dash-nav-dropdown-item">
+                                                        <a href="/admin/groups" class="dash-nav-dropdown-item">
                                                             <i class="fas fa-scroll mr-2"></i>All groups</a>
                                                         </div>
                                                     </div>
                                                     <div class="dash-nav-dropdown ">
-                                                        <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+                                                        {{-- <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                                                             <i class="fas fa-cube"></i> Components </a>
                                                             <div class="dash-nav-dropdown-menu">
                                                                 <a href="cards.html" class="dash-nav-dropdown-item">Cards</a>
@@ -75,9 +75,9 @@
                                                                 <a href="typography.html" class="dash-nav-dropdown-item">Typography</a>
                                                                 <a href="userinterface.html" class="dash-nav-dropdown-item">User Interface</a>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
                                                         <div class="dash-nav-dropdown">
-                                                            <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+                                                            {{-- <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                                                                 <i class="fas fa-file"></i> Layouts </a>
                                                                 <div class="dash-nav-dropdown-menu">
                                                                     <a href="blank.html" class="dash-nav-dropdown-item">Blank</a>
@@ -85,16 +85,16 @@
                                                                     <a href="login.html" class="dash-nav-dropdown-item">Log in</a>
                                                                     <a href="signup.html" class="dash-nav-dropdown-item">Sign up</a>
                                                                 </div>
-                                                            </div>
+                                                            </div> --}}
                                                             <div class="dash-nav-dropdown">
-                                                                <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+                                                                {{-- <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                                                                     <i class="fas fa-info"></i> About </a>
                                                                     <div class="dash-nav-dropdown-menu">
                                                                         <a href="https://github.com/subet/easion" target="_blank" class="dash-nav-dropdown-item">GitHub</a>
                                                                         <a href="https://usebootstrap.com/theme/easion" target="_blank" class="dash-nav-dropdown-item">UseBootstrap</a>
                                                                         <a href="https://mudimedia.com" target="_blank" class="dash-nav-dropdown-item">Mudimedia Software</a>
                                                                     </div>
-                                                                </div>
+                                                                </div> --}}
                                                             </nav>
                                                         </div>
                                                         <div class="dash-app">
@@ -111,7 +111,7 @@
                                                                     <input type="text" name='s' class="searchbox-input" placeholder="type to search">
                                                                 </form>
                                                                 <div class="tools">
-                                                                    <a href="https://github.com/subet/easion" target="_blank" class="tools-item">
+                                                                    {{-- <a href="https://github.com/subet/easion" target="_blank" class="tools-item">
                                                                         <i class="fab fa-github"></i>
                                                                     </a>
                                                                     <a href="#!" class="tools-item">
@@ -126,7 +126,7 @@
                                                                             <a class="dropdown-item" href="#!">Profile</a>
                                                                             <a class="dropdown-item" href="login.html">Logout</a>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> --}}
                                                                 </div>
                                                             </header>
                                                             <main class="dash-content">

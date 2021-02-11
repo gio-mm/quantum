@@ -48,7 +48,7 @@ class UserController extends Controller
         Mail::to($to)->send(new SignupEmail($data));
     }
     function register(Request $req){
-      
+     
         $validatedData=$req->validate([
             "name"=>"required",
             "lastname"=>"required",
@@ -60,11 +60,7 @@ class UserController extends Controller
         ]);
         $userInputs=$req->all();
         session()->put('userInputs',$userInputs);
-        
-
-
-   
-        
+            
         $this->sendEmail($req->email,$req->input('name'));
 
         return view('pages/verificationCode');
