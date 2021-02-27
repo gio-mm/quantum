@@ -53,7 +53,7 @@ class PostController extends Controller
 
         if($request->hasFile('file')){
          
-           $image=$request->file('file')->store('public/images/default_images');
+           $image=$request->file('file')->store('public/images/posts');
 
          }elseif($request->radio){
 
@@ -84,7 +84,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+       $post=Post::find($id);
+
+        return  view('admin.showPost',['post'=>$post]);
     }
 
     /**
@@ -144,6 +146,6 @@ class PostController extends Controller
     {
         //
         Post::destroy($id);
-        return redirect('/admin')->with("messageAction","post successfully removed  ");
+        return redirect('/admin')->with("messageAction","post successfully removed ");
     }
 }

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Group;
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use App\Models\Post;
 
-class GroupSeeder extends Seeder
+use Illuminate\Database\Seeder;
+
+class PostSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,8 +15,8 @@ class GroupSeeder extends Seeder
      */
     public function run()
     {
-        Group::factory(4)
+        //
+        Post::factory(10)
         ->create();
-
     }
 }

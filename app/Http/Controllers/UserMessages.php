@@ -20,7 +20,7 @@ class UserMessages extends Controller
           
             $message=new Message;
             $message->user_id= $user->id;
-            $message->message=$user->name.' '.$user->lastname.' wants join basic programing group';
+            $message->message=$user->name.' '.$user->lastname.' wants join to '.$group.' group';
             $message->type=$type;
             $message->group_request=$group;
             $message->save();

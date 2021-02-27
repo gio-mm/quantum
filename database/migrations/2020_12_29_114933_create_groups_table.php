@@ -17,9 +17,8 @@ class CreateGroupsTable extends Migration
             $table->id();
             $table->string('name');
             $table->json('days');
-
-
-
+            $table->foreignId('course_id')->references('id')->on('courses');
+            $table->string('status')->default('current');
             $table->timestamps();
         });
     }
@@ -31,6 +30,15 @@ class CreateGroupsTable extends Migration
      */
     public function down()
     {
+        Schema::table('groups', function (Blueprint $table) {
+            $table->dropForeign('course_id');
+            $table->dropIndex('course_id');
+            $table->dropColumn('course_id');
+        });
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign('posts_user_id_foreign');
+            $table->dropColumn('user_id');
+    });
         Schema::dropIfExists('groups');
     }
 }

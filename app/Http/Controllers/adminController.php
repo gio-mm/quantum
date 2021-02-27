@@ -19,7 +19,7 @@ class adminController extends Controller
     
    public function index(){
         
-        
+    
         $countUsers=User::all()->count();
         $countGroups=Group::all()->count();
         $countPosts=Post::all()->count();
@@ -54,22 +54,7 @@ class adminController extends Controller
         return redirect('admin/addMember');
     }
 
-    function addCourse(Request $request){
-        // $countUsers=User::all()->count();
-       if( $request->courseType){
-        $course= new Course;
-        $course->name=$request->courseName;
-        $course->type=$request->courseType;
-        $course->save();
-       }
-     
-        if($request->groupName){
-            GroupController::store($request);// fix 
-            
-        }
-        
-        return redirect('/admin')->with("messageAction","'".$request->courseName."'   was successfully set up ");
-    }
+  
     function search(Request $request){
         // dd($request->s);
         $users=DB::table('users')

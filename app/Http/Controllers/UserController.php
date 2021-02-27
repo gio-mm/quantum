@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Group;
-use App\Models\Message;
-use App\Models\Course;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -112,43 +111,5 @@ class UserController extends Controller
     }
         return view('pages/profile',['userInfo'=>$userInfo,'groupInfo'=> $groupInfo]);
     }
-    function basicCourse($category,Request $req){
-       if($category==='basicCourse'){
-            $type='1';
-       }elseif($category==='courses'){
-             $type='2';
-       }else{
-             $type='3';
-       }
-       
-        $userId=$req->session()->get('user')->id;
-
-        $groups=DB::table('groups')
-        ->join('courses', 'courses.id', '=', 'groups.course_id')
-        ->where('courses.type',$type)
-        ->select('groups.name','days')
-        ->get();
-        
-        
-        $userHasCourse= User::find($userId)->group() 
-            ->join('courses', 'courses.id', '=', 'groups.course_id')
-            ->where('courses.type',$type)
-            ->select('groups.id as groups_id','groups.name  as group_name','days','courses.name as name' )
-            ->get();
-       
-        $userCourseReq=Message::where('user_id',$userId)->where('type','prog')->first();
-
    
-       
-        if(count($userHasCourse)){
-            $hasCourse='hasCourse';
-        }elseif($userCourseReq){
-            $hasCourse='requested';
-        }else{
-            $hasCourse='';
-        }
-    
-        return view('basicCourse',['groups'=>$groups,'hasCourse'=>$hasCourse,'userCourseReq'=>$userCourseReq]);
-        
-    }
 }

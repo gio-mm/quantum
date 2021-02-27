@@ -17,7 +17,6 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('type');
-            $table->string('status')->default('current');
             $table->timestamps();
         });
     }

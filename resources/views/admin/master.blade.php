@@ -26,7 +26,7 @@
                 <a href="/admin" class="dash-nav-item">
                     <i class="fas fa-home"></i> Dashboard </a>
                     
-                    <a href="/admin/addCourse" class="dash-nav-item">
+                    <a href="{{url('admin/course/create')}}" class="dash-nav-item">
                         <i class="fas fa-plus"></i> Add Course </a>
                         <div class="dash-nav-dropdown">
                             <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
